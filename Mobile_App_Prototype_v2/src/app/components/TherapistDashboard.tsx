@@ -40,7 +40,7 @@ export default function TherapistDashboard() {
       </button>
 
       <div className="flex items-center justify-between mb-8">
-        <h1 className="text-4xl font-bold text-purple-900">Dashboard Terapeuta</h1>
+        <h1 className="text-4xl font-bold text-purple-900">Dashboard Adulto</h1>
         <button className="p-4 bg-white rounded-full shadow-lg">
           <SettingsIcon className="w-6 h-6 text-purple-900" />
         </button>

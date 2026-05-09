@@ -7,7 +7,7 @@ import { useApp } from '../context/AppContext';
 // ============================================
 // COMPONENTE: MODAL DE ACESSO PROTEGIDO
 // ============================================
-// Exibido quando criança tenta acessar Configurações ou Terapeuta
+// Exibido quando criança tenta acessar Configurações ou Adulto
 interface ProtectedAccessModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -124,12 +124,12 @@ export default function MainMenu() {
     {
       id: 'therapist',
       icon: Activity,
-      label: 'Terapeuta',
+      label: 'Adulto',
       color: 'from-purple-400 to-pink-500',
 
       path: '/therapist',
       supervisorOnly: true, // PROTEGIDO para cuidadores
-      description: 'Dashboard do terapeuta',
+      description: 'Dashboard do adulto',
       protected: true, // Bandeira para ativar proteção
     },
   ];
@@ -189,14 +189,14 @@ export default function MainMenu() {
       }}
     >
       {/* ============================================
-          HEADER MÓVEL: Modo Parental/Terapeuta + Estado (Ligado/Desligado) + BPM
-          - Mostra: rótulo de modo (Parental/Terapeuta), indicador ON/OFF
+          HEADER MÓVEL: Modo Parental/Adulto + Estado (Ligado/Desligado) + BPM
+          - Mostra: rótulo de modo (Parental/Adulto), indicador ON/OFF
           - Mostra: ícone de relógio com dot de estado e BPM à direita
       ============================================ */}
       <div className="w-full mb-6">
         <div className="mx-0 px-2">
           <div className="bg-gradient-to-r from-purple-200/60 to-purple-300/40 shadow-sm rounded-2xl h-14 flex items-center justify-between px-3">
-            {/* Left: Modo Parental/Terapeuta (clicável para ativar/desativar) */}
+            {/* Left: Modo Parental/Adulto (clicável para ativar/desativar) */}
             <motion.button
               onClick={handleToggleSupervisor}
               whileHover={{ scale: 1.03 }}
@@ -309,7 +309,7 @@ export default function MainMenu() {
           );
         })}
 
-        {/* CONFIGURAÇÕES + TERAPEUTA - Botões menores em grid 2 colunas */}
+        {/* CONFIGURAÇÕES + ADULTO - Botões menores em grid 2 colunas */}
         <div className="grid grid-cols-2 gap-6">
           {menuItems.slice(2, 4).map((item) => {
             const Icon = item.icon;
@@ -352,7 +352,7 @@ export default function MainMenu() {
       {/* ============================================
           MODAL: ACESSO PROTEGIDO
           Exibido quando criança tenta acessar
-          Configurações ou Terapeuta
+          Configurações ou Adulto
       ============================================ */}
       <ProtectedAccessModal
         isOpen={protectedAccessModal !== null}
